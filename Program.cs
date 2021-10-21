@@ -146,13 +146,13 @@ namespace HomeWorkCurrencyConverter
                         break;
                     default:
                         Console.WriteLine("Добро пожаловать в личный кабинет. Выбирете вашу операцию.");
-                        Console.WriteLine("1 -  proverka balance. 2 - sdelat konversia. 3 - vyjti iz kabineta");
+                        Console.WriteLine("1 -  Проверка баланса. 2 - Сконвертировать валюту. 3 - Выйти из кабинета");
                         userInput = Console.ReadLine();
                         break;
                 }
             }
             if (userInput == "3");
-                Console.WriteLine("Exit iz kabineta");
+                Console.WriteLine("Выход из личного кабинета.");
         }
     }
 }
