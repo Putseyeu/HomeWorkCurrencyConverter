@@ -9,19 +9,17 @@ namespace HomeWorkCurrencyConverter
     class Program
     {
         static void Main(string[] args)
-        {
-            string balanceMoney; 
-            string userInput;
-            string converter;
-            string currencySelection;
-            float usd = 200, pln = 800, rus = 2000;
-            float usdToPln = 4.2f; 
-            float usdToRus = 90f;
-            float plnToUsd = 4;
+        {           
+            string userInput;       
+            float usd = 200;
+            float pln = 800;
+            float rus = 2000;
+            float usdToPln = 4; 
+            float usdToRus = 90;
+            float plnToUsd = 0.25f;
             float plnToRus = 18;
-            float rusToPln = 17;
-            float rusToUsd = 88;
-            float correncyCount;
+            float rusToPln = 0.06f;
+            float rusToUsd = 0.01f;
 
             Console.WriteLine("Добро пожаловать в личный кабинет. Выбирете вашу операцию.");
             Console.WriteLine ("1 -  Проверка баланса. 2 - Сконвертировать валюту. 3 - Выйти из кабинета");
@@ -36,17 +34,17 @@ namespace HomeWorkCurrencyConverter
                         Console.WriteLine("1 -  Проверка баланса. 2 - Сконвертировать валюту. 3 - Выйти из кабинета");
                         userInput = Console.ReadLine();
                         break;
-
+                                                
                     case "2":
                         Console.WriteLine("Выбор валют для конверсии:  1 - USD в PLN, 2 -  PLN в USD, 3 - USD в RUS," +
                             "4 - PLN в RUS, 5 - RUS в PLN, 6 - RUS в USD");
-                        currencySelection = Console.ReadLine();
+                        string currencySelection = Console.ReadLine();
 
                         switch (currencySelection)
                         {
                             case "1":
                                 Console.WriteLine("Сколько долларов(USD) сконвертировать в злотые(PLN)?");
-                                correncyCount = Convert.ToSingle(Console.ReadLine());
+                                float correncyCount = Convert.ToSingle(Console.ReadLine());
                                 if (correncyCount <= usd)
                                 {
                                     usd -= correncyCount;
@@ -65,7 +63,7 @@ namespace HomeWorkCurrencyConverter
                                 if (correncyCount <= pln)
                                 {
                                     pln -= correncyCount;
-                                    usd += correncyCount / usdToPln;
+                                    usd += correncyCount * plnToUsd;
                                     Console.WriteLine("Конверсия  злотых(PLN) в доллары(USD) успешна. ");
                                 }
                                 else
@@ -110,7 +108,7 @@ namespace HomeWorkCurrencyConverter
                                 if (correncyCount <= rus)
                                 {
                                     rus -= correncyCount;
-                                    pln += correncyCount / rusToPln;
+                                    pln += correncyCount * rusToPln;
                                     Console.WriteLine("Конверсия рублей(Rus) в злотые(RUS) успешна.");
                                 }
                                 else
@@ -125,7 +123,7 @@ namespace HomeWorkCurrencyConverter
                                 if (correncyCount <= rus)
                                 {
                                     rus -= correncyCount;
-                                    usd += correncyCount / rusToUsd;
+                                    usd += correncyCount * rusToUsd;
                                     Console.WriteLine("Конверсия рублей(Rus) в доллары(USD) успешна.");
                                 }
                                 else
@@ -139,10 +137,7 @@ namespace HomeWorkCurrencyConverter
                                 Console.WriteLine("1 -  Проверка баланса. 2 - Сконвертировать валюту. 3 - Выйти из кабинета");
                                 userInput = Console.ReadLine();
                                 break;
-                        }
-                        Console.WriteLine("Добро пожаловать в личный кабинет. Выбирете вашу операцию.");
-                        Console.WriteLine("1 -  Проверка баланса. 2 - Сконвертировать валюту. 3 - Выйти из кабинета");
-                        userInput = Console.ReadLine();
+                        }                        
                         break;
                     default:
                         Console.WriteLine("Добро пожаловать в личный кабинет. Выбирете вашу операцию.");
